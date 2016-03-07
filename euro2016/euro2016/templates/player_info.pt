@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="base">
+
+<tal:block metal:fill-slot="content">
+
+  <h3>Player <span class="app-name">${player.d_alias}</span></h3>
+
+  <p class="align-center">
+    ${form.begin(request.route_url('player_info'))}
+    <fieldset>
+    ${form.csrf_token()}
+    <table class="middle">
+      <tr>
+        <td align="right">
+          ${form.label('name', 'Name')}
+        </td>
+        <td align="left">
+          ${form.text('name', size=40, value=player.d_name)}
+        </td>
+        <td align="left">
+          ${form.errorlist('name')}
+	</td>
+      </tr>
+      <tr>
+        <td align="right">
+          ${form.label('category', 'Category')}
+	</td>
+        <td align="left">
+          ${form.select('category', categories, (player.d_unit,))}
+	</td>
+        <td align="left">
+          ${form.errorlist('category')}
+	</td>
+      </tr>
+      <tr>
+        <td align="right">
+          ${form.label('mail', 'Email')}
+	</td>
+        <td align="left">
+          ${form.text('mail', size=40, value=player.d_mail)}
+	</td>
+        <td align="left">
+          ${form.errorlist('mail')}
+	</td>
+      </tr>
+      <tr>
+        <td align="right">
+          Points
+        </td>
+        <td align="left" colspan="2">
+          ${player.d_points}
+        </td>
+      </tr>
+      <tr>
+        <td align="right">
+          Rank
+        </td>
+        <td align="left" colspan="2">
+          ${player_rank}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          ${form.submit('form.submitted', ' Update ', class_='submit')}
+	</td>
+      </tr>
+    </table>
+    </fieldset>
+    ${form.end()}
+  </p>
+</tal:block>
+
+</html>

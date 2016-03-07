@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="base">
+
+<tal:block metal:fill-slot="content">
+  <p class="app-welcome">
+    Welcome to the <span class="app-name">${project}</span>.
+  </p>
+  <div tal:condition='not game_over'>
+  <p style="margin-bottom: 30px">
+    Please read the following sections carefully.
+  </p>
+  <h3>How to play</h3>
+  <ul class="align-left">
+    <li tal:condition="viewer_username is None">
+      First, you must <a href="${request.route_url('register')}">register</a> yourself (it's free).
+      Once registered you can log in anytime to enter or modify your bets.
+    </li>
+    <li>
+      <strong>Enter your bets on time.</strong> Each bet must be entered before the beginning of the respective
+      match and may be modified until then. 
+    </li>
+    <li>
+      For the profitable <a href="${request.route_url('final_bet')}">final bet</a> you also have to select
+      the teams that will reach the final.
+      It is due until <strong tal:content="final_deadline.strftime('%a, %d.%m.%Y %H:%M')"></strong>
+      (the beginning of the quarter finals) <strong>and cannot be modified</strong>.
+    </li>
+    <li>
+      The <a href="${request.route_url('scoring')}">scoring</a> page describes how many points you
+      can earn with a single bet.
+    </li>
+    <li>
+      To get additional help <a href="${request.route_url('help')}">click here</a>.
+    </li>
+    <li>
+      In case you are not interested in playing please follow <a href="http://www.warmduscher-abc.ch/">this link</a>.
+    </li>
+  </ul>
+  </div>
+  <div tal:condition='game_over'>
+  <p style="margin-bottom: 30px">
+    The games are over!
+  </p>
+  <p>
+    Thanks to all <a href="${request.route_url('view_ranking')}">participants</a> and
+    congratulations to the <a href="${request.route_url('view_ranking')}">winner</a>.
+  </p>
+  <p>
+    Please check back in 2 years for the <a href="http://www.uefa.com/uefaeuro/finals/index.html">UEFA EURO2016</a>.
+  </p>
+  </div>
+</tal:block>
+
+</html>

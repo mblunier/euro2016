@@ -1,0 +1,22 @@
+<div id="login-form"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal">
+  <form tal:condition="not loggedin" action="/login" method="post">
+  <fieldset>
+    <input name="_csrf" type="hidden" value="${request.session.get_csrf_token()}">
+    <table>
+    <tr>
+      <td align="left">
+        <input type="text" name="alias" placeholder="Alias" />
+      </td>
+      <td align="left">
+        <input type="password" name="password" placeholder="Password" />
+      </td>
+      <td>
+        <input type="submit" class="submit" name="form.submitted" value=" Login " />
+      </td>
+    </tr>
+    </table>
+  </fieldset>
+  </form>
+</div>
