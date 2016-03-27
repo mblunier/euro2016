@@ -70,8 +70,9 @@
   </ul>
 </div>
 <div id="uefa">
-  <a class="trnLink" href="http://www.uefa.com/uefaeuro/index.html">
-    <img src="${request.static_url('euro2016:static/logo.svg')}" alt="UEFA 2016" width="20" height="80" />
+  <a class="logolink" href="http://www.uefa.com/uefaeuro/index.html" title="UEFA Euro 2016">
+    <!-- img src="${request.static_url('euro2016:static/logo.svg')}" alt="UEFA 2016" width="20" height="80" / -->
+    UEFA Euro 2016
   </a>
 </div>
 <div id="user-info" tal:condition="viewer_username">

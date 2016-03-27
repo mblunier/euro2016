@@ -257,7 +257,7 @@ tr:nth-child(odd) {
         padding-left: 5px;
         width: 20px;
 }
-
+/*
 .trnLink {
 	display: block;
 	height: 58px;
@@ -265,6 +265,12 @@ tr:nth-child(odd) {
 	position: absolute;
 	top: 10px;
 	width: 301px;
+}
+*/
+
+.logolink {
+	background: url("/static/logo.svg") center center no-repeat;
+	background-size: auto 100px;
 }
 
 #message {
