@@ -14,17 +14,54 @@
     <th>Played</th>
     <th>Goals</th>
     <th>Points</th>
-    <th tal:condition="not nonav">Matches</th>
+    <!-- th tal:condition="not nonav">Matches</th -->
   </tr>
-  <tr tal:repeat="team teams">
+  <tr tal:repeat="team group.teams">
     <td><span class="badge flag-${team.d_id}" title="${team.d_name}"></span></td>
     <td style="width: 40%; text-align:left">${team.d_name} (${team.d_id})</td>
     <td>${team.d_played}</td>
     <td>${team.d_shot} : ${team.d_rcvd}</td>
     <td>${team.d_points}</td>
-    <td tal:condition="not nonav"><a href="${request.route_url('view_group_matches', group=team.d_group)}">View</a></td>
+    <!-- td tal:condition="not nonav"><a href="${request.route_url('view_group_matches', group=team.d_group)}">View</a></td -->
   </tr>
   </table>
+  <p class="tabletop">
+    Matches
+  </p>
+  <table id="match-list">
+  <tr>
+    <th>#</th>
+    <th>Date</th>
+    <th colspan="3">Match</th>
+    <th>Result</th>
+    <th colspan="2">Tips</th>
+  </tr>
+  <tr tal:repeat="match matches">
+    <td>${match.d_id}</td>
+    <td align="right" tal:content="match.d_begin.strftime('%a, %d.%m.%Y %H:%M')">Kickoff</td>
+    <td><span class="badge flag-${match.d_team1}"></span></td>
+    <td>${match.d_team1} : ${match.d_team2}</td>
+    <td><span class="badge flag-${match.d_team2}"></span></td>
+    <td tal:condition="match.d_score1 is not None and match.d_score2 is not None">${match.d_score1} : ${match.d_score2}</td>
+    <td tal:condition="match.d_score1 is None or match.d_score2 is None">- : -</td>
+    <td>
+      <span tal:condition="viewer_username and now < match.d_begin">
+        <a tal:condition="match.tip"
+           href="${request.route_url('match_bet', match=match.d_id)}">
+          ${match.tip.d_score1} : ${match.tip.d_score2}
+        </a>
+        <a tal:condition="not match.tip"
+           href="${request.route_url('match_bet', match=match.d_id)}">
+          Bet
+        </a>
+      </span>
+    </td>
+    <td>
+      <a href="${request.route_url('view_match_tips', match=match.d_id)}"> View </a>
+    </td>
+  </tr>
+  </table>
+  <p tal:condition="not nonav" class="align-right"><input type="button" onClick="history.back()" value=" Back "></p>
 </tal:block>
 
 </html>

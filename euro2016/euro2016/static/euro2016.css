@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 body {
-	background-color: #C3B9BA;
+	background-color: #ECEAEA;
 	font-family: Verdana,Sans-Serif;
 	font-size: 12px;
 	line-height: 1;
@@ -122,7 +122,7 @@ dt {
 
 p {
 	line-height: 1.5em;
-	color: #190163;
+	//color: #241072;
 }
 
 h1 {
@@ -167,7 +167,7 @@ body {
 }
 
 a {
-	color: #C00097;
+	color: #890747;
 	text-decoration: none;
 }
 
@@ -203,11 +203,11 @@ tr th {
 }
 
 tr:nth-child(even) {
-	background-color: #73B5BB;
+	background-color: #F0D9F3;
 }
 
 tr:nth-child(odd) {
-	background-color: #5CADA2;
+	background-color: #F0C3D0;
 }
 
 .badge {
@@ -252,8 +252,8 @@ tr:nth-child(odd) {
 
 .flag-
 {
-	background:#a3a3a3;
-	border-radius:50%;
+	background: #a3a3a3;
+	border-radius: 50%;
         padding-left: 5px;
         width: 20px;
 }
@@ -269,8 +269,9 @@ tr:nth-child(odd) {
 */
 
 .logolink {
-	background: url("/static/logo.svg") center center no-repeat;
+	//background: url("/static/logo.png") center center no-repeat;
 	background-size: auto 100px;
+	margin: 0 0 0 20px;
 }
 
 #message {
@@ -295,6 +296,16 @@ tr:nth-child(odd) {
 	color: #FFFFFF;
 	margin: 10px 80px 0 0;
 	float: right;
+}
+
+#user-info a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#user-info a:hover {
+	color: #000044;
+	text-decoration: underline;
 }
 
 #login-form tr {
@@ -340,7 +351,7 @@ tr:nth-child(odd) {
 	border-collapse: collapse;
 	font-weight: bold;
 	text-decoration: none;
-	background-color: #B89DC5;
+	background-color: #C5C1E9;
 	margin: 0 0 1px 2px;  
 	box-shadow: 5px 5px 20px 3px white;
 }
@@ -455,7 +466,7 @@ tr:nth-child(odd) {
 }
 
 #footer {
-	background: rgba(24, 24, 25, 0.5);
+	background: rgba(245, 185, 145, 0.5);
 	height: 20px;
 	position: fixed;
 	float: none;
@@ -478,7 +489,7 @@ tr:nth-child(odd) {
 }
 
 #top {
-	background: url("/static/bg_pattern.png") no-repeat scroll 0 0 #007CBA;
+	background: url("/static/bg_pattern.png") no-repeat scroll 0 0 #8EBBD2;
 	color: #FFFFFF;
 	height: 150px;
 	border-bottom: 2px solid #FFFFFF;
@@ -534,7 +545,7 @@ tr:nth-child(odd) {
 
 .highlight-player {
 	border: 1px dotted #7C7E3D;
-	background-color: #F3F781;
+	background-color: #81F7C9;
 	font-weight: bold;
 }
 

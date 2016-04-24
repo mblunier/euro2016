@@ -420,16 +420,18 @@ def view_team_groups(request):
              'navigation': navigation_view(request),
              'nonav': 'nonav' in request.params }
 
-@view_config(permission='view', route_name='view_group_teams', renderer='templates/team_groups.pt')
+@view_config(permission='view', route_name='view_group_teams', renderer='templates/group_teams.pt')
 def view_group_teams(request):
     """ Show the teams of a single group. """
+    player = request.authenticated_userid
     group_id = request.matchdict['group']
     if group_id not in GROUP_IDS:
         raise HTTPNotFound('invalid group id: %s' % group_id)
-    groups = [TeamGroup(group_id, Team.get_by_group(group_id))]
-    return { 'groups': groups,
-             'navigation': navigation_view(request),
-             'nonav': 'nonav' in request.params }
+    group = TeamGroup(group_id, Team.get_by_group(group_id))
+    matches = Match.get_by_group(group_id).all()
+    view = match_view(request, player, matches, 'unused title', group_id)
+    view.update({ 'group': group })
+    return view
 
 
 # ----- Match views -----

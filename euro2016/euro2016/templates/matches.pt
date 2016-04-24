@@ -31,7 +31,7 @@
              ${match.tip.d_score1} : ${match.tip.d_score2}
            </span>
        <span tal:condition="viewer_username and final_deadline > now and match.tip is None">
-         <a href="${request.route_url('final_bet')}"> Add </a>
+         <a href="${request.route_url('final_bet')}"> Bet </a>
        </span>
      </span>
      <span tal:condition="match.d_id != final_id">
@@ -40,7 +40,7 @@
                ${match.tip.d_score1} : ${match.tip.d_score2}
              </a>
          <a tal:condition="not match.tip" href="${request.route_url('match_bet', match=match.d_id)}">
-               Add 
+               Bet
              </a>
        </span>
        <span tal:condition="viewer_username and now >= match.d_begin">

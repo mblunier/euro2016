@@ -31,7 +31,7 @@
         </a>
         <a tal:condition="not match.tip"
            href="${request.route_url('match_bet', match=match.d_id)}">
-          Add 
+          Bet
         </a>
       </span>
     </td>
