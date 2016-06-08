@@ -47,12 +47,41 @@ def main(argv=sys.argv):
 
     # register the 'admin' user
     with transaction.manager:
-        DBSession.add(Player(alias="admin", password="None", name="Admin", mail="mb@rolotec.ch", unit="Administration"))
+        DBSession.add(Player(alias="admin", password="None", name="Admin", mail="markus.blunier@six-group.com", unit="Administration"))
 
     # player categories (org. units)
     with transaction.manager:
-        DBSession.add(Category(alias="Admin",       name="Administration"))
-        DBSession.add(Category(alias="B+S",         name="Operation & Support"))
+        #DBSession.add(Category(alias="Admin",       name="Administration"))
+        DBSession.add(Category(alias="DFI-FDMD",    name="Data Production / Quality Support MD"))
+        DBSession.add(Category(alias="DFI-MMOC",    name="Marketing Communications"))
+        DBSession.add(Category(alias="DFI-MPMI",    name="Public Interface Capabilities"))
+        DBSession.add(Category(alias="DFI-MPMP",    name="Product Propositions"))
+        DBSession.add(Category(alias="DFI-MPMV",    name="Value Added Services"))
+        DBSession.add(Category(alias="DFS-ARG",     name="Accounting"))
+        DBSession.add(Category(alias="DGI-AFD",     name="Product Delivery Appl. Engineering"))
+        DBSession.add(Category(alias="DGI-AFDA",    name="Data Aggregation and Enrichment"))
+        DBSession.add(Category(alias="DGI-AFDC",    name="Content Applications"))
+        DBSession.add(Category(alias="DGI-AFDD",    name="Delivery Application"))
+        DBSession.add(Category(alias="DGI-AFDF",    name="Product Eng. & QA"))
+        DBSession.add(Category(alias="DGI-AFDN",    name="API Engineering"))
+        DBSession.add(Category(alias="DGI-AFDS",    name="Services Framework"))
+        DBSession.add(Category(alias="DGI-AFDW",    name="Web Applications"))
+        DBSession.add(Category(alias="DGI-AFPD",    name="RefData & RefCalc"))
+        DBSession.add(Category(alias="DGI-AO",      name="Card Mgmt & Online Systems"))
+        DBSession.add(Category(alias="DGI-AOF",     name="Application Engineering Frontoffice"))
+        DBSession.add(Category(alias="DGI-AOFA",    name="Frontoffice Acquiring"))
+        DBSession.add(Category(alias="DGI-AOFI",    name="Frontoffice Issuing"))
+        DBSession.add(Category(alias="DGI-AOFN",    name="Frontoffice Architecture"))
+        DBSession.add(Category(alias="DGI-AOFP",    name="Platform DBA and Security"))
+        DBSession.add(Category(alias="DGI-AOFS",    name="FO System Test Deployment and Support"))
+        DBSession.add(Category(alias="DGI-AOFW",    name="Frontoffice Web Services"))
+        DBSession.add(Category(alias="DGI-FE",      name="Engagement Management"))
+        DBSession.add(Category(alias="DGI-OVS",     name="Operations & Support"))
+        DBSession.add(Category(alias="DGI-PR",      name="Requirements and Solutions"))
+        DBSession.add(Category(alias="DPS-SXAC",    name="Processing & Scheme Engineering"))
+        DBSession.add(Category(alias="DPS-SXEB",    name="Terminal Engineering"))
+        DBSession.add(Category(alias="DPS-SXS",     name="Solutions, Architecture & Chip"))
+        DBSession.add(Category(alias="SGR-HDAI",    name="IT Apprentice"))
 
     # teams/groups
     with transaction.manager:
