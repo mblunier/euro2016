@@ -692,7 +692,7 @@ def update_match(request):
     try:
         match = Match.get_by_id(request.matchdict['id'])
         if match:
-            if match.d_begin < FINAL_DEADLINE: 
+            if match.d_begin < STAGE2_DEADLINE: 
                 request.session.flash(u'Cannot update group stage matches.')
             else:
                 match.d_team1 = request.matchdict['team1']
