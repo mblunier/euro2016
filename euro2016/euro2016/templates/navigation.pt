@@ -1,5 +1,5 @@
 <div id="uefa">
-  <a class="logolink" href="http://www.uefa.com/uefaeuro/index.html" title="UEFA Euro 2016">
+  <a class="logolink" href="http://www.uefa.com/uefaeuro/index.html" title="UEFA Euro 2016" target="_new">
     <img src="${request.static_url('euro2016:static/logo.png')}" alt="UEFA 2016" height="90" width="90"/>
   </a>
 </div>
