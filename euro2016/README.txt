@@ -10,19 +10,13 @@ Getting Started
 	$ cd betgame
 	$ source bin/activate
 
+- Upgrade the setuptools:
+  	(betgame)$ pip install setuptools --upgrade
+
 - Get a copy of the distributed game 'euro2016-x.y.tar.gz'.
 
 - Install the game (this step must be repeated for every new release):
 	(betgame)$ easy_install path/to/euro2016-x.y.tar.gz
-
-  If the previous step fails with an error like this:
-	>>>  error: Setup script exited with error in funcsigs setup command: Invalid
-	>>>  environment marker: python_version<"2.7"
-
-  then try to update the setuptools:
-  	(betgame)$ pip install setuptools --upgrade
-
-  and finally repeat the easy_install command.
 
 - Edit the categories in 'betgame/lib/python2.7/site-packages/euro2016-x.y-py2.7.egg/euro2016/scripts/initialize_db.py'.
   Categories may also be adapted later by the administrator (see below).
