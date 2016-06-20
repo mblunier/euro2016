@@ -24,7 +24,7 @@ requires = [
     ]
 
 setup(name='euro2016',
-      version='0.1',
+      version='0.2',
       description='euro2016',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
