@@ -9,6 +9,7 @@ from properties import (
     PROJECT_TITLE,
     FINAL_ID,
     FINAL_DEADLINE,
+    STAGE2_DEADLINE,
     ADMINS,
     GROUP_IDS 
     )
