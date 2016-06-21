@@ -18,4 +18,4 @@ FINAL_ID = 51
 FINAL_DEADLINE = datetime(2016,6,30, 21,00)
 
 # beginning of stage 2 (after the end of the group phase)
-STAGE2_DEADLINE = datetime(2016,6,23,  1,00)
+STAGE2_DEADLINE = datetime(2016,6,23, 1,00)
