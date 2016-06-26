@@ -285,7 +285,7 @@ def refresh_points():
     log.info('===== ...applying scores to stage 1 matches')
     for match in Match.get_played():
         # update all team points & scores for stage 1 matches
-        if match.d_begin < FINAL_DEADLINE:
+        if match.d_begin < STAGE2_DEADLINE:
             log.debug('match %d (%s:%s) with score %d:%d --> updating team scores', 
                        match.d_id, match.d_team1, match.d_team2, 
                        match.d_score1, match.d_score2)

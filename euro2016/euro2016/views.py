@@ -52,6 +52,7 @@ from .models import (
     Setting,
     Player,
     Rank,
+    Stats,
     Category,
     Team,
     TeamGroup,
@@ -404,6 +405,18 @@ def view_player_info(request):
              'navigation': navigation_view(request),
              'nonav': 'nonav' in request.params }
 
+@view_config(permission='view', route_name='view_player_stats', renderer='templates/player_stats.pt', http_cache=0)
+def view_player_stats(request):
+    player_id = request.matchdict['player']
+    player = Player.get_by_username(player_id)
+    stats = Stats.get_player_stats(player_id):
+    return { 'player': player,
+             'stats': stats,
+             'viewer_username': request.authenticated_userid,
+             'navigation': navigation_view(request),
+             'nonav': 'nonav' in request.params }
+
+
 
 # ----- Team/Group views -----
 
@@ -615,6 +628,11 @@ def view_tips(request):
     return { 'tips': Tip.get_all(),
              'viewer_username': request.authenticated_userid,
              'navigation': navigation_view(request) }
+
+@view_config(permission='admin', route_name='update_stats')
+def update_stats(request):
+    scoring.refresh_stats()
+    return HTTPFound(location=route_url('view_players', request))
 
 @view_config(permission='admin', route_name='update_local')
 def update_local(request):

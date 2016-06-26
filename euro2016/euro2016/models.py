@@ -220,6 +220,22 @@ class Setting(Base):
                         .filter(cls.d_name == name).first()
 
 
+class Stats(Base):
+    __tablename__ = 't_stats'
+    d_player = Column(String(10), ForeignKey('t_player.d_alias'), primary_key=True)
+    d_round = Column(Integer, ForeignKey('t_match.d_id'), primary_key=True)
+    d_tips = Column(Integer, nullable=True)
+    d_hits = Column(Integer, nullable=True)
+    d_misses = Column(Integer, nullable=True)
+    d_points = Column(Integer, nullable=True)
+
+    @classmethod
+    def get_player_stats(cls, player):
+        return DBSession.query(cls) \
+                        .filter(cls.d_player == player) \
+                        .order_by(cls.d_round)
+
+
 class Team(Base):
     __tablename__ = 't_team'
     d_id = Column(String(3), primary_key=True)
