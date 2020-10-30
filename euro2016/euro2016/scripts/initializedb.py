@@ -47,7 +47,7 @@ def main(argv=sys.argv):
 
     # register the 'admin' user
     with transaction.manager:
-        DBSession.add(Player(alias="admin", password="None", name="Admin", mail="markus.blunier@six-group.com", unit="Administration"))
+        DBSession.add(Player(alias="admin", password="None", name="Admin", mail="mblunier@gmx.ch", unit="Administration"))
 
     # player categories (org. units)
     with transaction.manager:
